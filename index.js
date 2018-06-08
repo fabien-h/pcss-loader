@@ -63,7 +63,30 @@ module.exports = function(cssSource) {
     .then(result =>
       callback(
         null,
-        `module.exports = { hash: '${hash}', styles: \`${result.css}\` }`
+        `module.exports = {
+          hash: '${hash}',
+          styles: \`${result.css}\`
+        }`
       )
-    );
+    )
+    .catch(error => {
+      console.error(`Name: ${error.name}
+Reason: ${error.reason}
+Line: ${error.line}
+Column: ${error.column}
+      `);
+
+      callback(
+        null,
+        `module.exports = {
+          hash: '${hash}',
+          styles: '',
+          cssParsingError: {
+            name: '${error.name}',
+            reason: '${error.reason}',
+            line: '${error.line}',
+            column: '${error.column}',
+          } }`
+      );
+    });
 };

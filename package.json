@@ -1,6 +1,6 @@
 {
   "name": "pcss-loader",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Webpack loader for pcss files",
   "license": "MIT",
   "repository": {
@@ -10,9 +10,6 @@
   "homepage": "https://github.com/fabien-h/pcss-loader#readme",
   "bugs": "https://github.com/fabien-h/pcss-loader/issues",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Fabien Huet <fabien.huet@gmail.com> @fabien_huet",
   "dependencies": {
     "cssnano": "^3.10.0",
