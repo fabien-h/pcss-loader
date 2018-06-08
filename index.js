@@ -57,7 +57,7 @@ module.exports = function(cssSource) {
    * Process the css
    */
   postCSS(plugins)
-    .process(cssSource.replace('.SCOPE', `.${hash}`), {
+    .process(cssSource.replace('.__SCOPE', `.${hash}`), {
       from: undefined
     })
     .then(result =>
