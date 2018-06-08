@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fabien Huet <fabien.huet@gmail.com> @fabien_huet",
-  "devDependencies": {
+  "dependencies": {
     "cssnano": "^3.10.0",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.22",
