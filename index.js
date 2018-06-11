@@ -73,11 +73,12 @@ module.exports = function(cssSource) {
       console.error(`Name: ${error.name}
 Reason: ${error.reason}
 Line: ${error.line}
-Column: ${error.column}
-      `);
+Column: ${error.column}`);
+
+      if (error.file) this.addDependency(error.file);
 
       callback(
-        null,
+        error.name === 'CssSyntaxError' ? new SyntaxError(error) : error,
         `module.exports = {
           hash: '${hash}',
           styles: '',
