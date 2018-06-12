@@ -15,7 +15,11 @@
     "cssnano": "^3.10.0",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.22",
+    "postcss-calc": "^6.0.1",
+    "postcss-custom-properties": "^7.0.0",
+    "postcss-flexbugs-fixes": "^3.3.1",
     "postcss-import": "^11.1.0",
+    "postcss-media-minmax": "^3.0.0",
     "postcss-nested": "^3.0.0",
     "postcss-preset-env": "^5.1.0",
     "postcss-simple-vars": "^4.1.0"

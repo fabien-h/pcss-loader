@@ -1,13 +1,8 @@
 /**
  * Imports
  */
-const postCSS = require('postcss');
-const postCSSNested = require('postcss-nested');
-const cssnano = require('cssnano');
-const postcssPresetEnv = require('postcss-preset-env');
-const atImport = require('postcss-import');
-const simpleVars = require('postcss-simple-vars');
 const loaderUtils = require('loader-utils');
+const postCSS = require('postcss');
 
 module.exports = function(cssSource) {
   /**
@@ -35,10 +30,30 @@ module.exports = function(cssSource) {
    * Build the plugins list
    */
   const plugins = [
-    atImport, // Alow @import 'path/...';
-    simpleVars, // Allow scss like variables use $var: value
-    postCSSNested, // Allow nesting
-    postcssPresetEnv(
+    // Alow @import 'path/...';
+    // https://github.com/postcss/postcss-import
+    require('postcss-import'),
+    // Allow scss like variables use $var: value
+    // https://github.com/postcss/postcss-simple-vars
+    require('postcss-simple-vars'),
+    // Allow nesting like header { h1 {...} a {...} }
+    // https://github.com/postcss/postcss-nested
+    require('postcss-nested'),
+    // Fix flexbox bugs
+    // https://github.com/luisrudge/postcss-flexbugs-fixes
+    require('postcss-flexbugs-fixes'),
+    // Reduces calc() to values (when expressions involve the same units).
+    // https://github.com/postcss/postcss-calc
+    require('postcss-calc'),
+    // Supports variables, using syntax from the W3C Custom Properties
+    // https://github.com/postcss/postcss-custom-properties
+    require('postcss-custom-properties'),
+    // Allow <= and => statements to media queries
+    // https://github.com/postcss/postcss-media-minmax
+    require('postcss-media-minmax'),
+    // Presets for compilation target
+    // https://github.com/csstools/postcss-preset-env
+    require('postcss-preset-env')(
       // Transpilation target or default values
       options.presetEnv || {
         stage: 0,
@@ -47,22 +62,34 @@ module.exports = function(cssSource) {
         // Default value for a large coverage
         browsers: 'cover 100%'
       }
-    ),
-    ...(options.customPlugins || []) // User plugins
+    )
   ];
   // Optional minification ; recommended for production
-  if (options.minified) plugins.push(cssnano);
+  // https://github.com/cssnano/cssnano
+  if (options.minified) plugins = [...plugins, require('cssnano')];
 
-  /**
-   * Process the css
-   */
+  // If the user has selected custom plugins
+  if (
+    options.customPlugins &&
+    Array.isArray(options.customPlugins) &&
+    options.customPlugins.length > 0
+  )
+    plugins = [...plugins, ...options.customPlugins];
+
+  // Process the css width the plugins
   postCSS(plugins)
-    .process(cssSource.replace('.__SCOPE', `.${hash}`), {
-      from: undefined
-    })
+    .process(
+      // Scope the styles with the hash of the initial file
+      cssSource.replace('.__SCOPE', `.${hash}`),
+      {
+        from: undefined
+      }
+    )
     .then(result =>
       callback(
+        // null means no error
         null,
+        // produces a file that can be imported in javascript
         `module.exports = {
           hash: '${hash}',
           styles: \`${result.css}\`
@@ -70,6 +97,7 @@ module.exports = function(cssSource) {
       )
     )
     .catch(error => {
+      // Format the error
       console.error(`Name: ${error.name}
 Reason: ${error.reason}
 Line: ${error.line}
@@ -77,6 +105,7 @@ Column: ${error.column}`);
 
       if (error.file) this.addDependency(error.file);
 
+      // Return for the client with the error
       callback(
         error.name === 'CssSyntaxError' ? new SyntaxError(error) : error,
         `module.exports = {
