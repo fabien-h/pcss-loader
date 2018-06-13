@@ -29,7 +29,7 @@ module.exports = function(cssSource) {
   /**
    * Build the plugins list
    */
-  const plugins = [
+  let plugins = [
     // Alow @import 'path/...';
     // https://github.com/postcss/postcss-import
     require('postcss-import'),
