@@ -60,13 +60,14 @@ module.exports = function(cssSource) {
         // CSS nesting by default
         features: ['css-nesting'],
         // Default value for a large coverage
-        browsers: 'cover 100%'
-      }
-    )
+        browsers: 'cover 100%',
+      },
+    ),
   ];
   // Optional minification ; recommended for production
   // https://github.com/cssnano/cssnano
-  if (options.minified) plugins = [...plugins, require('cssnano')];
+  if (options.minified)
+    plugins = [...plugins, require('cssnano')({ zindex: false })];
 
   // If the user has selected custom plugins
   if (
@@ -82,8 +83,8 @@ module.exports = function(cssSource) {
       // Scope the styles with the hash of the initial file
       cssSource.replace('.__SCOPE', `.${hash}`),
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
     .then(result =>
       callback(
@@ -93,8 +94,8 @@ module.exports = function(cssSource) {
         `module.exports = {
           hash: '${hash}',
           styles: \`${result.css}\`
-        }`
-      )
+        }`,
+      ),
     )
     .catch(error => {
       // Format the error
@@ -116,7 +117,7 @@ Column: ${error.column}`);
             reason: '${error.reason}',
             line: '${error.line}',
             column: '${error.column}',
-          } }`
+          } }`,
       );
     });
 };
