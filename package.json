@@ -12,16 +12,22 @@
   "main": "index.js",
   "author": "Fabien Huet <fabien.huet@gmail.com> @fabien_huet",
   "dependencies": {
-    "cssnano": "^3.10.0",
-    "loader-utils": "^1.1.0",
-    "postcss": "^6.0.22",
-    "postcss-calc": "^6.0.1",
-    "postcss-custom-properties": "^7.0.0",
-    "postcss-flexbugs-fixes": "^3.3.1",
-    "postcss-import": "^11.1.0",
-    "postcss-media-minmax": "^3.0.0",
-    "postcss-nested": "^3.0.0",
-    "postcss-preset-env": "^5.1.0",
-    "postcss-simple-vars": "^4.1.0"
+    "cssnano": "^4.1.10",
+    "loader-utils": "^1.2.3",
+    "postcss": "^7.0.17",
+    "postcss-calc": "^7.0.1",
+    "postcss-custom-properties": "^9.0.2",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-media-minmax": "^4.0.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-simple-vars": "^5.0.2"
+  },
+  "devDependencies": {
+    "release-it": "^12.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
