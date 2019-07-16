@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/fabien-h/pcss-loader"
   },
+  "scripts": {
+    "release": "release-it"
+  },
   "homepage": "https://github.com/fabien-h/pcss-loader#readme",
   "bugs": "https://github.com/fabien-h/pcss-loader/issues",
   "main": "index.js",
