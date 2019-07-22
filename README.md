@@ -6,6 +6,8 @@
 
 # pcss-loader
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fabien-h/pcss-loader.svg)](https://greenkeeper.io/)
+
 A loader for Webpack that imports pcss files and return js modules.
 
 ## How to setup in your webpack configuration
