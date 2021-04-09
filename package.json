@@ -15,20 +15,20 @@
   "main": "index.js",
   "author": "Fabien Huet <fabien.huet@gmail.com> @fabien_huet",
   "dependencies": {
-    "cssnano": "^4.1.10",
-    "loader-utils": "^1.2.3",
-    "postcss": "^7.0.17",
-    "postcss-calc": "^7.0.1",
-    "postcss-custom-properties": "^9.0.2",
-    "postcss-flexbugs-fixes": "^4.1.0",
-    "postcss-import": "^12.0.1",
-    "postcss-media-minmax": "^4.0.0",
-    "postcss-nested": "^4.1.2",
+    "cssnano": "^4.1.11",
+    "loader-utils": "^2.0.0",
+    "postcss": "^8.2.9",
+    "postcss-calc": "^8.0.0",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.1",
+    "postcss-media-minmax": "^5.0.0",
+    "postcss-nested": "^5.0.5",
     "postcss-preset-env": "^6.7.0",
-    "postcss-simple-vars": "^5.0.2"
+    "postcss-simple-vars": "^6.0.3"
   },
   "devDependencies": {
-    "release-it": "^12.3.3"
+    "release-it": "^14.5.1"
   },
   "publishConfig": {
     "access": "public"
