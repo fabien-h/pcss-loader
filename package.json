@@ -16,7 +16,7 @@
   "author": "Fabien Huet <fabien.huet@gmail.com> @fabien_huet",
   "dependencies": {
     "cssnano": "^5.1.14",
-    "loader-utils": "^3.2.1",
+    "loader-utils": "^2.0.0",
     "postcss": "^8.4.21",
     "postcss-calc": "^8.2.4",
     "postcss-custom-properties": "^12.1.11",
