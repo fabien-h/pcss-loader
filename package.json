@@ -15,22 +15,23 @@
   "main": "index.js",
   "author": "Fabien Huet <fabien.huet@gmail.com> @fabien_huet",
   "dependencies": {
-    "cssnano": "^4.1.11",
-    "loader-utils": "^2.0.0",
-    "postcss": "^8.2.9",
-    "postcss-calc": "^8.0.0",
-    "postcss-custom-properties": "^11.0.0",
+    "cssnano": "^5.1.14",
+    "loader-utils": "^3.2.1",
+    "postcss": "^8.4.21",
+    "postcss-calc": "^8.2.4",
+    "postcss-custom-properties": "^12.1.11",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^14.0.1",
+    "postcss-import": "^15.1.0",
     "postcss-media-minmax": "^5.0.0",
-    "postcss-nested": "^5.0.5",
-    "postcss-preset-env": "^6.7.0",
-    "postcss-simple-vars": "^6.0.3"
+    "postcss-nested": "^6.0.0",
+    "postcss-preset-env": "^7.8.3",
+    "postcss-simple-vars": "^7.0.1"
   },
   "devDependencies": {
-    "release-it": "^14.5.1"
+    "release-it": "^15.6.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
